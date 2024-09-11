@@ -18,34 +18,50 @@ This is a news application built using React and GNews API. The app displays the
 - **Tailwind** : I know but not used :)
 - **Next.js**: For server-side rendering and routing.
 - **GNews API**: To fetch news articles based on the selected country and search term.
+- **Express JS**: To create the Backend APIs & communicate with frontend.
+- **Node JS**: The runtime environment of our project.
 
 ## Installation
 
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/subhranshuchoudhury/acowale-news-app.git
+   git clone https://github.com/subhranshuchoudhury/acowale-project
    ```
 
-2. Change directory:
+2. Frontend directory:
 
    ```bash
-   cd acowale-news-app
+   cd frontend_acowale
    ```
 
-3. Add .env:
+3. Backend directory:
 
    ```bash
-   VITE_BACKEND_API=http://localhost:5000
+   cd backend_acowale
    ```
 
-4. Install dependency:
+4. Add .env:
+
+   ```bash
+   VITE_BACKEND_API=
+   ```
+
+5. Install dependency: (Both directory)
 
    ```bash
    yarn or yarn install
    ```
 
-## Start Application
+## Start Application (Backend)
+
+1. Run:
+
+   ```bash
+   node index.js
+   ```
+
+## Start Application (Frontend)
 
 1. Development:
 
@@ -53,7 +69,7 @@ This is a news application built using React and GNews API. The app displays the
    yarn dev
    ```
 
-1. Build:
+2. Build:
 
    ```bash
    yarn build
@@ -95,6 +111,18 @@ Ensuring the correct behavior of the search functionality while filtering by cou
 
 ### Future Enhancements
 
-Tailwind CSS: I am familiar with Tailwind and may refactor the CSS into Tailwind in the future for a more scalable design system.
+#### Tailwind CSS:
+
+I am familiar with Tailwind and may refactor the CSS into Tailwind in the future for a more scalable design system.
 Debounced Search: Implementing debounced search functionality to reduce API calls when the user types in the search bar.
 Better Error Handling: Adding user-friendly error messages and better handling of API failures.
+
+#### Backend:
+
+We can separate the route folder, middleware & controllers for better code readability & maintainability. As we have few API end point so we declared it on the index.js file.
+
+### Developer
+
+- Name: Subhranshu Choudhury
+- Mobile: +91 8249587552
+- Email: subhransuchoudhury00@gmail.com
