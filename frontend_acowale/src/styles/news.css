@@ -1,0 +1,52 @@
+select,
+input[type="search"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+input[type="search"] {
+  width: 250px;
+}
+
+select:hover,
+input[type="search"]:focus {
+  border-color: #007bff;
+}
+
+.news-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination span {
+  font-size: 1.2rem;
+  color: #333;
+}

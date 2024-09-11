@@ -1,0 +1,85 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 10vh);
+  overflow-x: hidden;
+}
+
+.container {
+  width: 400px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.container button {
+  padding: 0.6rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container form {
+  margin-top: 20px;
+}
+
+.container form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.container form button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+@media (width <= 810px) {
+  .register-container {
+    flex-direction: column;
+  }
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+}
+
+@media (width <= 420px) {
+  .register-form {
+    width: 100%;
+  }
+  .container {
+    width: 300px;
+  }
+}
+
+.google-login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+}
+
+.google-login-button svg {
+  margin-right: 10px;
+}

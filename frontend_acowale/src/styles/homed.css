@@ -1,0 +1,112 @@
+.container-profile {
+  display: flex;
+  justify-content: space-around;
+  height: calc(100vh - 10vh);
+  width: 100%;
+}
+
+.left-panel {
+  padding-top: 1rem;
+  width: 30%;
+}
+
+.center-panel {
+  width: 50%;
+  padding-top: 1rem;
+}
+
+.profiled {
+  background-color: rgba(0, 0, 0, 0.635);
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: white;
+}
+
+.profiled p {
+  font-size: 1.2rem;
+  margin-block: 1rem;
+}
+
+.profiled a {
+  color: white;
+  text-decoration: none;
+}
+
+.profiled:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.jobs-container {
+  width: 100%;
+}
+
+.jobs-container h2 {
+  margin-bottom: 1rem;
+}
+
+.jobs-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-groups {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.profiled .round {
+  transition: all 0.3s ease-in-out;
+}
+
+.profiled .round:hover {
+  scale: 1.2;
+  cursor: pointer;
+}
+
+@media (width <= 870px) {
+  .profiled {
+    padding: 1.4rem;
+  }
+  .profiled .round {
+    height: 60px;
+    width: 60px;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .center-panel {
+    width: 65%;
+  }
+  .center-panel h1 {
+    font-size: 1.6rem;
+  }
+  .center-panel p {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (width <= 730px) {
+  .container-profile {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .center-panel {
+    width: 80%;
+  }
+  .left-panel {
+    width: 80%;
+  }
+}
+
+@media (width <= 382px) {
+  .btn-groups {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (width <= 530px) {
+  .container-profile {
+    height: auto;
+  }
+}

@@ -1,0 +1,191 @@
+.banner {
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.banner-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.home-login-form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.home-login-form button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.home-login-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.banner-text h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.banner-text p {
+  font-size: 1.2rem;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-inline: 2rem;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.section {
+  margin-block: 40px;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  overflow: hidden;
+}
+.text {
+  width: 40vw;
+}
+.text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.text h2::after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 3px;
+  background-color: #333;
+  margin: 10px auto;
+  transition: width 0.3s ease-in-out;
+}
+
+.text h2:hover::after {
+  width: 50%;
+}
+
+.text p {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.section img {
+  margin-block: 10px;
+  border-radius: 8px;
+  height: 50vh;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  width: auto;
+}
+
+.section img:hover {
+  transform: scale(1.1);
+}
+
+.round {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@media (width <= 925px) {
+  .banner-login {
+    color: black;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.422);
+  }
+  .banner-text h1 {
+    font-size: 1.5rem;
+  }
+  .section {
+    flex-direction: column-reverse;
+  }
+  .section img {
+    max-width: 600px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .section .text {
+    width: 100%;
+  }
+  .section .text h2 {
+    margin-bottom: 10px;
+  }
+}
+
+@media (width <= 850px) {
+  .banner img {
+    width: 100%;
+    height: 50vh;
+    aspect-ratio: 1/1;
+  }
+  .section img {
+    height: 40vh;
+  }
+
+  .section .text h2 {
+    font-size: 1.5rem;
+  }
+  .section .text p {
+    font-size: 1rem;
+  }
+  .home-container {
+    margin-inline: 0;
+  }
+}

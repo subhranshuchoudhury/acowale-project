@@ -1,0 +1,39 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 10vh);
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #6c757d;
+  animation: spin 1s linear infinite;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #007bff;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
