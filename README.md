@@ -16,7 +16,7 @@ This is a news application built using React and GNews API. The app displays the
 - **Axios**: For making API calls to GNews.
 - **CSS**: responsive styling.
 - **Tailwind** : I know but not used :)
-- **Next.js**: For server-side rendering and routing.
+- **Next.js**: We can but as per recommendation we used ReactJS.
 - **GNews API**: To fetch news articles based on the selected country and search term.
 - **Express JS**: To create the Backend APIs & communicate with frontend.
 - **Node JS**: The runtime environment of our project.
