@@ -8,7 +8,7 @@
 
 .card {
   width: 300px;
-  height: 400px;
+  height: 450px;
   padding: 20px;
   border-radius: 10px;
   color: #fff;
@@ -23,6 +23,7 @@
   width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
+  height: 200px;
 }
 
 .card h2 {
