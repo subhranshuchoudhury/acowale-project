@@ -10,6 +10,11 @@ app.use(cors());
 const PORT = process.env.PORT || 5000;
 const API_KEY = process.env.GNEWS_API_KEY;
 
+app.get("/", (req, res) => {
+  res.statusCode = 200;
+  res.send("Welcome to the News API");
+});
+
 app.get("/api/news", async (req, res) => {
   const { q, lang, country, topic, page, max, category } = req.query;
 
