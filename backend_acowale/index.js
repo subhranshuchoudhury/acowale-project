@@ -1,18 +1,36 @@
-// index.js
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+
+// Define allowed origin
+const allowedOrigins = ["https://acowalenews.web.app"];
+
+// CORS middleware configuration
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        // Block the request if the origin is not allowed
+        return callback(
+          new Error("CORS policy: This origin is not allowed"),
+          false
+        );
+      }
+      return callback(null, true);
+    },
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 const API_KEY = process.env.GNEWS_API_KEY;
 
 app.get("/", (req, res) => {
-  res.statusCode = 200;
-  res.send("Welcome to the News API");
+  res.status(200).send("Welcome to the News API");
 });
 
 app.get("/api/news", async (req, res) => {
@@ -38,6 +56,6 @@ app.get("/api/news", async (req, res) => {
   }
 });
 
-https: app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
