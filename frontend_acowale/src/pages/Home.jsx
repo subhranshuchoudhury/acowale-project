@@ -4,6 +4,7 @@ import "../styles/news.css";
 import NewsCard from "../components/NewsCard";
 import Loader from "../components/Loader";
 import Footer from "../components/Footer";
+import { toast } from "react-toastify";
 
 const News = () => {
   const [articles, setArticles] = useState([]);
@@ -78,6 +79,7 @@ const News = () => {
       // Save the result to localStorage for fallback
       localStorage.setItem(cacheKey, JSON.stringify(cache[cacheKey]));
     } catch (error) {
+      toast.error("Failed to fetch news. Please try again later.");
       console.error(
         "Error fetching news, trying to retrieve from localStorage:",
         error
@@ -90,6 +92,7 @@ const News = () => {
         setArticles(parsedData.articles);
         setTotalPages(parsedData.totalPages);
       } else {
+        toast.error("No cached data available in localStorage.");
         console.error("No cached data available in localStorage.");
       }
     } finally {

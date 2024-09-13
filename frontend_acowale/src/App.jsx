@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
-import Loader from "./components/Loader";
 import News from "./pages/News/News";
 
 function App() {
@@ -27,7 +26,7 @@ function App() {
           <Route path="/news" element={<News />} />
         </Routes>
       </Router>
-      <ToastContainer autoClose={2000} position="top-right" hideProgressBar />
+      <ToastContainer autoClose={5000} position="top-right" hideProgressBar />
     </>
   );
 }
