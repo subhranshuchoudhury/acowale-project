@@ -5,15 +5,15 @@ const NewsCard = ({ article }) => {
   // Function to generate random color
   const generateRandomColor = () => {
     const colors = [
-      // "#FF6B6B",
+      "#FF6B6B",
       "#1E90FF",
-      // "#32CD32",
-      // "#FF8C00",
-      // "#9400D3",
-      // "#FFD700",
+      "#32CD32",
+      "#FF8C00",
+      "#9400D3",
+      "#FFD700",
       "#00CED1",
-      // "#FF1493",
-      // "#DC143C",
+      "#FF1493",
+      "#DC143C",
       "#4682B4",
     ];
     const randomIndex = Math.floor(Math.random() * colors.length);

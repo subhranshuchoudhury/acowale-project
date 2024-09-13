@@ -10,17 +10,62 @@ import Loader from "../../components/Loader";
 const News = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(""); // Debounced search term
+  const [searchTerm, setSearchTerm] = useState(""); // Search term input
+
+  // Cache object to store API responses
+  const cache = {};
+
+  // Debounce search term with 1000ms delay
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 1000); // 1000ms debounce time
+
+    return () => {
+      clearTimeout(handler); // Clear previous timeout if searchTerm changes
+    };
+  }, [searchTerm]);
 
   const fetchNews = async () => {
+    const cacheKey = `general_${debouncedSearchTerm}`;
+
+    // Check if the data is already cached
+    if (cache[cacheKey]) {
+      setNews(cache[cacheKey]);
+      setLoading(false);
+      return;
+    }
+
     try {
+      setLoading(true); // Show loader while fetching
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_API}/api/news?topic=general`
+        `${
+          import.meta.env.VITE_BACKEND_API
+        }/api/news?topic=general&q=${debouncedSearchTerm}`
       );
 
-      setNews(response.data.articles);
-      setLoading(false);
+      const fetchedArticles = response.data.articles;
+      setNews(fetchedArticles);
+
+      // Cache the result for future use
+      cache[cacheKey] = fetchedArticles;
+
+      // Save the result to localStorage for fallback
+      localStorage.setItem(cacheKey, JSON.stringify(fetchedArticles));
     } catch (error) {
-      console.error("Error fetching news:", error);
+      console.error(
+        "Error fetching news, trying to retrieve from localStorage:",
+        error
+      );
+
+      // On failure, attempt to load from localStorage
+      const cachedData = localStorage.getItem(cacheKey);
+      if (cachedData) {
+        setNews(JSON.parse(cachedData));
+      } else {
+        console.error("No cached data available in localStorage.");
+      }
     } finally {
       setLoading(false);
     }
@@ -28,7 +73,7 @@ const News = () => {
 
   useEffect(() => {
     fetchNews();
-  }, []);
+  }, [debouncedSearchTerm]);
 
   const { ref: bannerRef, inView: bannerInView } = useInView({
     triggerOnce: true,
@@ -58,6 +103,15 @@ const News = () => {
       >
         <div className="banner-content">
           <div className="home-container">
+            {/* Search Input */}
+            <input
+              type="search"
+              placeholder="Search news..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+
+            {/* Render News Cards */}
             {news.map((article, index) => (
               <NewsCard article={article} key={index} />
             ))}
