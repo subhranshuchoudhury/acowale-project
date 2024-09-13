@@ -91,7 +91,7 @@ const News = () => {
         const parsedData = JSON.parse(cachedData);
         setArticles(parsedData.articles);
         setTotalPages(parsedData.totalPages);
-        toast.error("Showing cached data from localStorage.");
+        toast.success("Showing cached data from localStorage.");
       } else {
         toast.error("No cached data available in localStorage.");
         console.error("No cached data available in localStorage.");
